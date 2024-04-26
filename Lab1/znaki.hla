@@ -1,0 +1,19 @@
+program znaki;
+
+#include ("stdlib.hhf");
+
+static
+	znak1: char:='A';
+
+var
+	znak2: char;
+
+begin znaki;
+
+	stdout.put( "Podaj znak: " );
+	stdin.get( znak2 );
+
+	stdout.put( "Znak wczesniej zadeklarowany to ",znak1 );
+	stdout.put( ", a znak wczytany z klawiatury to ",znak2,nl);
+
+end znaki;

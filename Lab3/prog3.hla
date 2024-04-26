@@ -1,0 +1,21 @@
+program prog3;
+
+#include( "stdlib.hhf" );
+
+static
+	zmienna1: int8;
+	zmienna2: byte;
+
+begin prog3;
+
+	mov(15,al);
+	mov(15,zmienna1);
+	mov(15,zmienna2);
+	stdout.put ( "Wartosc wyswietlana ze zmiennej typu int8 to: ",zmienna1 );
+	stdout.newln();
+	stdout.put ( "Wartosc wyswietlana ze zmiennej typu byte to: ",zmienna2 );
+	stdout.newln();
+	stdout.put ( "Wartosc wyswietlana z rejestru al to: ",al );
+	stdout.newln();
+
+end prog3;

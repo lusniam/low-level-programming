@@ -1,0 +1,24 @@
+program movaddsub;
+
+#include ("stdlib.hhf");
+
+static
+	zmienna1: int8:=-7;
+	zmienna2: int8:=6;
+
+var
+	roznica: int8;
+	suma: int8;
+
+begin movaddsub;
+
+	stdout.put( "Wartosci zmiennych to ",zmienna1," i ",zmienna2,nl );
+	mov(zmienna1,al);
+	sub(zmienna2,al);
+	mov(al,roznica);
+	stdout.put( "Roznica zmiennych to ",roznica,nl);
+	add(12,al);
+	mov(al,suma);
+	stdout.put( "Po dodaniu 12 jest rowna ",suma,nl);
+
+end movaddsub;

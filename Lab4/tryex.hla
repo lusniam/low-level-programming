@@ -1,0 +1,23 @@
+program tryex;
+
+#include ("stdlib.hhf");
+
+begin tryex;
+
+    stdout.put("Podaj liczbe z zakresu <-128,127>",nl);
+    mov(0,ebx);
+    forever
+        try
+            stdin.geti8();
+            break;
+        exception(ex.ConversionError)
+            stdout.put("Niepoprawna wartosc, sprobuj jeszcze raz",nl);
+        exception(ex.ValueOutOfRange)
+            stdout.put("Wartosc spoza zakresu, sprobuj jeszcze raz",nl);
+        endtry;
+    endfor;
+    stdout.put("Wpisano liczbe ");
+    stdout.puti8(al);
+    stdout.newln();
+
+end tryex;

@@ -1,0 +1,30 @@
+program pr1;
+
+#include ("stdlib.hhf");
+
+var
+	liczba1: int8;
+	liczba2: int8;
+
+begin pr1;
+
+	stdout.put ( "Kalkulator",nl,"Podaj pierwsza liczbe: ");
+
+	stdin.get ( liczba1 );
+
+	stdin.flushInput();
+	
+	stdout.put ("Podaj druga liczbe: ");
+
+	stdin.get( liczba2 );
+
+	mov(liczba1,al);
+	mov(liczba1,bl);
+	add(liczba2,al);
+	sub(liczba2,bl);
+	mov(al,liczba1);
+	mov(bl,liczba2);
+	
+	stdout.put ("Suma liczb to ",liczba1,nl,"Roznica liczb to ",liczba2,nl);
+
+end pr1;

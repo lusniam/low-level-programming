@@ -1,0 +1,18 @@
+program negacja;
+
+#include ("stdlib.hhf");
+
+var
+	liczba: int8;
+
+begin negacja;
+
+	stdout.put( "Podaj liczbe miedzy -127 a 127: " );
+	stdin.get( liczba );
+	mov(liczba,al);
+	sub(liczba,al);
+	sub(liczba,al);
+	mov(al,liczba);
+	stdout.put( "Negacja podanej liczby to ",liczba,nl );
+
+end negacja;

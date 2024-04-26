@@ -1,0 +1,46 @@
+program prog;
+
+#include("stdlib.hhf");
+
+static
+    tab8: int8[10]:= [0,1,2,3,4,5,6,7,8,9];
+    tab32: int32[10]:= 10 dup [100000];
+
+begin prog;
+
+    stdout.put("Tablica elementow int8:",nl);
+    for(mov(0,eax);eax<10;inc(eax)) do
+        stdout.put(tab8[eax],stdio.tab);
+    endfor;
+    stdout.newln();
+
+    stdout.put("Tablica elementow int32:",nl);
+    for(mov(0,al);al<10;inc(al)) do
+        stdout.puti32(tab32[eax*4]);
+        stdout.put(stdio.tab);
+    endfor;
+    stdout.newln();
+
+    forever
+        try
+            stdout.put("Podaj numer elementu do przekopiowania: ");
+            stdin.geti8();
+            breakif(al>=0 && al<=9);
+        exception(ex.ConversionError)
+            stdout.put("Niepoprawna wartosc, sprobuj jeszcze raz",nl);
+        exception(ex.ValueOutOfRange)
+            stdout.put("Wartosc spoza zakresu, sprobuj jeszcze raz",nl);
+        endtry;
+    endfor;
+
+    mov((type int32 tab8[eax]),tab32[eax*4]);
+    and(255,tab32[eax*4]);
+
+    stdout.put("Tablica int32 po kopiowaniu elementu z tablicy int8:",nl);
+    for(mov(0,eax);eax<10;inc(eax)) do
+        stdout.puti32(tab32[eax*4]);
+        stdout.put(stdio.tab);
+    endfor;
+    stdout.newln();
+
+end prog;

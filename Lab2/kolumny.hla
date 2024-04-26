@@ -1,0 +1,20 @@
+program kolumny;
+
+#include ("stdlib.hhf");
+
+static
+	liczba: int8:= 40;
+	i: int8;
+
+begin kolumny;
+
+	while (liczba>0) do
+		for( mov(0,i); i<5; inc(i) )
+		do
+			stdout.put(liczba:5);
+			dec(liczba);
+		endfor;
+		stdout.newln();
+	endwhile;
+
+end kolumny;

@@ -1,0 +1,69 @@
+program lusnia;
+
+#include("stdlib.hhf");
+
+static
+	tabDuze: char[200];
+	tabMale: char[200];
+	tabCyfry: char[200];
+	iloscInnych: int8:= 0;
+
+begin lusnia;
+
+	stdin.flushInput();
+	stdout.put("Program na ocene 5",nl,"Podaj ciag znakow:",nl);
+	mov(0,ebx);
+	mov(0,ecx);
+	mov(0,edx);
+	repeat
+		stdin.getc();
+		if(al>=65&&al<=90) then
+			mov(al,tabDuze[ebx]);
+			inc(ebx);
+		else
+			if(al>=97&&al<=122) then
+				mov(al,tabMale[ecx]);
+				inc(ecx);
+			else
+				if(al>=48&&al<=57) then
+					mov(al,tabCyfry[edx]);
+					inc(edx);
+				else
+					if(al!=10) then
+						inc(iloscInnych);
+					endif;					
+				endif;
+			endif;
+		endif;
+	until(stdin.eoln());
+
+	stdout.put(nl,"Tabela duzych liter: ",nl);	
+	if(ebx==0) then
+		stdout.put("Pusta");
+	else
+		for(mov(0,eax);eax<ebx;inc(eax)) do
+			stdout.put(tabDuze[eax],", ");
+		endfor;
+	endif;
+
+	stdout.put(nl,nl,"Tabela malych liter: ",nl);
+	if(ebx==0) then
+		stdout.put("Pusta");
+	else
+		for(mov(0,eax);eax<ecx;inc(eax)) do
+			stdout.put(tabMale[eax],", ");
+		endfor;
+	endif;
+
+	stdout.put(nl,nl,"Tabela cyfr: ",nl);
+	if(ebx==0) then
+		stdout.put("Pusta");
+	else
+		for(mov(0,eax);eax<edx;inc(eax)) do
+			stdout.put(tabCyfry[eax],", ");
+		endfor;
+	endif;
+
+	stdout.put(nl,nl,"Liczba pozostalych znakow niewprowadzonych do tablic: ",iloscInnych,nl);
+
+end lusnia;

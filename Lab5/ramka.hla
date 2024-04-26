@@ -1,0 +1,65 @@
+program ramka;
+
+#include("stdlib.hhf");
+
+static
+    i: int8;
+    j: int8;
+    znak: char;
+
+begin ramka;
+
+    forever
+        stdout.put("Podaj znak: ");
+        stdin.flushInput();
+        stdin.getc();
+        breakif(al>=33 && al<=126);
+        stdout.put("Nie podano podano odpowiedniego znaku!",nl);
+    endfor;
+    mov(al,znak);
+    forever
+        try
+            stdout.put("Podaj ilosc wierszy: ");
+            stdin.geti8();
+            break;
+        exception(ex.ConversionError)
+            stdout.put("Niepoprawna wartosc, sprobuj jeszcze raz",nl);
+        exception(ex.ValueOutOfRange)
+            stdout.put("Wartosc spoza zakresu, sprobuj jeszcze raz",nl);
+        endtry;
+    endfor;
+    mov(al,i);
+    forever
+        try
+            stdout.put("Podaj ilosc kolumn: ");
+            stdin.geti8();
+            break;
+        exception(ex.ConversionError)
+            stdout.put("Niepoprawna wartosc, sprobuj jeszcze raz",nl);
+        exception(ex.ValueOutOfRange)
+            stdout.put("Wartosc spoza zakresu, sprobuj jeszcze raz",nl);
+        endtry;
+    endfor;
+    mov(al,j);
+    for(mov(1,al);al<=i;inc(al)) do
+        stdout.newln();
+        if(al==1 || al==i) then
+            for(mov(0,ah);ah<j;inc(ah)) do
+                stdout.put(znak);
+            endfor;
+        else
+            stdout.put(znak);
+            for(mov(9,ah);ah<=j;add(8,ah)) do
+                stdout.put(stdio.tab);
+            endfor;
+            sub(8,ah);
+            while(ah<j) do
+                stdout.put(" ");
+                inc(ah);
+            endwhile;
+            stdout.put(znak);
+        endif;
+    endfor;
+    stdout.newln();
+
+end ramka;

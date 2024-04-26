@@ -1,0 +1,37 @@
+program konwersja;
+
+#include("stdlib.hhf");
+
+begin konwersja;
+
+    stdout.put("W jakim systemie podasz liczbe? (0 - dziesietnie, 1 - szesnastkowo): ");
+    stdin.geti8();
+    stdout.put("Podaj liczbe: ");
+    if(al==0) then
+        stdin.geti32();
+        stdout.put("Podana liczba dziesietna w systemie szesnastkowym to ");
+        stdout.puth32(eax);
+        stdout.put("H");
+    else
+        if(al==1) then
+            stdin.geth32();
+            stdout.put("Podana liczba szesnastkowa w systemie dziesietnym to ");
+            stdout.puti32(eax);
+        else
+            stdout.put("Podano nieprawidlowa opcje");
+        endif;
+    endif;
+    stdout.newln();
+    mov(al, bl);
+    if(eax==ebx) then
+        stdout.put("Do negacji liczby potrzebny jest rejestr przynajmniej 8-bitowy");
+    else
+        mov(ax, bx);
+        if(eax==ebx) then
+            stdout.put("Do negacji liczby potrzebny jest rejestr przynajmniej 16-bitowy");
+        else
+            stdout.put("Do negacji liczby potrzebny jest rejestr przynajmniej 32-bitowy");
+        endif;
+    endif;
+    stdout.newln();
+end konwersja;

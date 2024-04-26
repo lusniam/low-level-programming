@@ -1,0 +1,40 @@
+program lowercase;
+
+#include("stdlib.hhf");
+
+begin lowercase;
+
+    forever
+        stdout.put("Podaj duza litere: ");
+        stdin.flushInput();
+        stdin.getc();
+        breakif(al>=65 && al<=90);
+        stdout.put("Nie podano podano duzej litery!",nl);
+    endfor;
+    add(32,al);
+    stdout.put("Twoja litera po zmianie to ");
+    stdout.putc(al);
+    stdout.newln();
+
+    not(al);
+    mov(255,ah);
+    and(al,ah);
+    not(al);
+    not(ah);
+    stdout.put("Zmieniona litera z wykorzystaniem operacji not oraz and: ");
+    stdout.putc(ah);
+    stdout.newln();
+
+    mov(al,bl);
+    or(32,bl);
+    stdout.put("Zmieniona litera z wykorzystaniem operacji or: ");
+    stdout.putc(bl);
+    stdout.newln();
+
+    mov(al,bh);
+    xor(32,bh);
+    stdout.put("Zmieniona litera z wykorzystaniem operacji xor: ");
+    stdout.putc(bh);
+    stdout.newln();
+
+end lowercase;

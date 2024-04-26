@@ -1,0 +1,15 @@
+program hextodec;
+
+#include( "stdlib.hhf" );
+
+static
+	zmienna: int32;
+
+begin hextodec;
+
+	stdout.put( "Podaj liczbe w zapisie szesnastkowym: " );
+	stdin.get( eax );
+	mov(eax,zmienna);
+	stdout.put ( "Wartosc ",eax,"H w zapisie dziesietnym to: ",zmienna,nl );
+
+end hextodec;

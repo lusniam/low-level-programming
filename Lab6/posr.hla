@@ -1,0 +1,17 @@
+program posrednie;
+
+#include ("stdlib.hhf");
+
+static
+    zmienna: int32;
+
+begin posrednie;
+
+    mov(&zmienna,ebx);
+    stdout.put("Zmienna ma adres",ebx,nl);
+    mov(57,eax);
+    mov(eax,[ebx]);
+    stdout.put("Zapisuje posrednio wartosc do zmiennej",nl);
+    stdout.put("Wartosc zmiennej: ",zmienna,nl);
+
+end posrednie;

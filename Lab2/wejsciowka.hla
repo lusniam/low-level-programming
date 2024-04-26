@@ -1,0 +1,33 @@
+program negacja;
+
+#include ("stdlib.hhf");
+
+static
+    liczba1b: int8:= -7;
+    liczba2b: int16:= -277;
+    liczba4b: int32:= -66000;
+
+begin negacja;
+
+    stdout.put( "Poczatkowe wartosci: 1-bajtowa: ",liczba1b,", 2-bajtowa: ", liczba2b, ", 4-bajtowa: ", liczba4b, nl);
+    
+    mov(0,al);
+    sub(liczba1b,al);
+    mov(al,liczba1b);
+
+    mov(0,ax);
+    sub(liczba2b,ax);
+    mov(ax,liczba2b);
+
+    mov(0,eax);
+    sub(liczba4b,eax);
+    mov(eax,liczba4b);
+
+    stdout.put( "Wartosci po negacji: 1-bajtowa: ",liczba1b,", 2-bajtowa: ", liczba2b, ", 4-bajtowa: ", liczba4b, nl);
+
+    add(666,eax);
+    mov(eax,liczba4b);
+
+    stdout.put( "Wartosc zmiennej 4-bajtowej po dodaniu liczby 666: ",liczba4b,nl );
+
+end negacja;

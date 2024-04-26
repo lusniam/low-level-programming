@@ -1,0 +1,19 @@
+program dowhile2;
+
+#include ("stdlib.hhf");
+
+begin dowhile2;
+
+    stdout.put("Oblicze sume podanych przez ciebie liczb",nl);
+    mov(0,ebx);
+    forever
+        stdout.put("Podaj liczbe, lub 0 aby dostac sume: ");
+        stdin.geti32();
+        add(eax,ebx);
+        breakif(al==0);
+    endfor;
+    stdout.put("Suma wpisanych przez ciebie liczb to ");
+    stdout.puti32(ebx);
+    stdout.newln();
+
+end dowhile2;

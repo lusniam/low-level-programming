@@ -1,0 +1,18 @@
+program polecenie1;
+
+#include( "stdlib.hhf" );
+
+static
+	zmienna: int8;
+
+begin polecenie1;
+
+	stdout.put( "Podaj liczbe od -128 do 127: " );
+	stdin.get( zmienna );
+	mov(zmienna,al);
+	stdout.put ( "Wartosc wyswietlana ze zmiennej typu int8 to: ",zmienna );
+	stdout.newln();
+	stdout.put ( "Wartosc wyswietlana z rejestru al to: ",al );
+	stdout.newln();
+
+end polecenie1;

@@ -1,0 +1,38 @@
+program rozszerzenie;
+
+#include ("stdlib.hhf");
+
+begin rozszerzenie;
+
+    stdout.put("Podaj liczbe z zakresu -128 do 127: ");
+    stdin.geti8();
+
+    stdout.put("Wprowadzono: ");
+    stdout.puti8(al);
+    stdout.put(" (",al,"H)",nl);
+
+    stdout.put("Rozszerzanie znakiem (instrukcje rozszerzania):",nl);
+    
+    cbw();
+    stdout.put("Rozszerzenie do 16 bitów: ");
+    stdout.puti16(ax);
+    stdout.put(" (",ax,"H)",nl);
+
+    cwde();
+    stdout.put("Rozszerzenie do 32 bitów: ");
+    stdout.puti32(eax);
+    stdout.put(" (",eax,"H)",nl);
+
+    stdout.put("Rozszerzanie znakiem (instrukcja kopiowania ze znakiem):",nl);
+    
+    movsx(al,ax);
+    stdout.put("Rozszerzenie do 16 bitów: ");
+    stdout.puti16(ax);
+    stdout.put(" (",ax,"H)",nl);
+
+    movsx(ax,eax);
+    stdout.put("Rozszerzenie do 32 bitów: ");
+    stdout.puti32(eax);
+    stdout.put(" (",eax,"H)",nl);
+
+end rozszerzenie;

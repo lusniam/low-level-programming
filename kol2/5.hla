@@ -1,0 +1,40 @@
+program piec;
+
+#include("stdlib.hhf");
+
+static
+    tab: char[100]:= 100 dup [#0];
+
+begin piec;
+
+    stdout.put("program na ocene 5",nl);
+    mov(0,ecx);
+    repeat
+        stdin.getc();
+        mov(al,tab[ecx]);
+        inc(ecx);
+    until (stdin.eoln());
+    mov(0,eax);
+    mov(0,bh);
+    mov(0,bl);
+    forever
+        if(tab[eax]>=65&&tab[eax]<=90) then 
+            inc(bh);
+        else
+            if(tab[eax]>=97&&tab[eax]<=122) then
+                inc(bl);
+            endif;
+        endif;
+        breakif(tab[eax]==0);
+        inc(eax);
+    endfor;
+    stdout.put("Liczba wprowadzonych znakow: ");
+    stdout.puti32(eax);
+    stdout.newln();
+    stdout.put("Liczba duzych liter: ");
+    stdout.puti8(bh);
+    stdout.newln();
+    stdout.put("Liczba malych liter: ");
+    stdout.puti8(bl);
+    stdout.newln();
+end piec;

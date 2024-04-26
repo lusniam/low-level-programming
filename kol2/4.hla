@@ -1,0 +1,50 @@
+program cztery;
+
+#include("stdlib.hhf");
+
+static
+    tab: int8[256]:= 256 dup [0];
+
+begin cztery;
+
+    stdout.put("Podaj pierwsza liczbe: ");
+    forever
+        try
+            stdin.geti8();
+            break;
+        exception(ex.ConversionError)
+            stdout.put("Nie podano liczby! Podaj liczbe: ");
+        exception(ex.ValueOutOfRange)
+            stdout.put("Podano liczbe spoza zakresu! Podaj liczbe: ");
+        endtry;
+    endfor;
+    mov(al,cl);
+    stdout.put("Podaj druga liczbe: ");
+    forever
+        try
+            stdin.geti8();
+            if(al>cl) then
+                break;
+            else
+                stdout.put("Druga liczba musi byc mniejsza od pierwszej! ");
+            endif;
+        exception(ex.ConversionError)
+            stdout.put("Nie podano liczby!");
+        exception(ex.ValueOutOfRange)
+            stdout.put("Podano liczbe spoza zakresu! ");
+        endtry;
+        stdout.put("Podaj liczbe: ")
+    endfor;
+    mov(al,dl);
+    for(mov(0,ebx);cl<=dl;inc(cl)) do
+        mov(cl,tab[ebx]);
+        inc(ebx);
+    endfor;        
+    stdout.put("Otrzymana tablica: ",nl);
+    for(mov(0,eax);eax<ebx;inc(eax)) do
+        stdout.puti8(tab[eax]);
+        stdout.put(", ");
+    endfor;
+    stdout.newln();
+
+end cztery;

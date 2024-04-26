@@ -1,0 +1,15 @@
+program powtorz;
+
+#include ("stdlib.hhf");
+
+begin powtorz;
+
+    stdout.put("Podaj liczbe z zakresu -128 do 127: ");
+    stdin.geti8();
+
+    mov(-128,ah);
+    repeat
+        stdout.put()
+    until(ah<al);
+
+end powtorz;

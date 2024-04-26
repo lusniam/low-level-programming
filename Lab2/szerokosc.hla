@@ -1,0 +1,16 @@
+program szerokosc;
+
+#include ("stdlib.hhf");
+
+static
+	licznik: int8:= 10;
+
+begin szerokosc;
+
+	while ( licznik>0 ) do
+		stdout.put( licznik:5 );
+		dec(licznik);
+	endwhile;
+	stdout.newln();
+
+end szerokosc;

@@ -1,0 +1,17 @@
+program hex;
+
+#include ("stdlib.hhf");
+
+static
+	liczba: int32;
+
+begin hex;
+
+	stdout.put( "Podaj liczbe w podstaci szesnastkowej: " );
+	stdin.geth32();
+	mov(eax,liczba);
+	stdout.put( "Wartosc zmiennej liczba w postaci szesnastkowej: " );
+	stdout.puth32( liczba );
+	stdout.newln();
+
+end hex;

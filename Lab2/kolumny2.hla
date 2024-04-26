@@ -1,0 +1,23 @@
+program kolumny2;
+
+#include ("stdlib.hhf");
+
+static
+	i: int8:= 40;
+
+begin kolumny2;
+	
+	mov(0,al);
+	while (i>0) do	
+		if (al==5) then
+			mov(0,al);
+			stdout.newln();
+		else
+			stdout.put(i:5);
+			dec(i);
+			inc(al);
+		endif;
+	endwhile;
+	stdout.newln();
+
+end kolumny2;

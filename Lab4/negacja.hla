@@ -1,0 +1,38 @@
+program negacja;
+
+#include ("stdlib.hhf");
+
+static
+    liczba: int8;
+
+begin negacja;
+
+    stdout.put("Podaj liczbe z zakresu -128 do 127: ");
+    stdin.geti8();
+    mov(al,liczba);
+
+    stdout.put("Wpisana liczba szesnastkowo: ");
+    stdout.puth8(liczba);
+    stdout.newln();
+    
+    stdout.put("Po inwersji bitow: ");
+    not(liczba);
+    stdout.puth8(liczba);
+    stdout.newln();
+
+    stdout.put("Po dodaniu jednosci: ");
+    inc(liczba);
+    stdout.puth8(liczba);
+    stdout.newln();
+
+    stdout.put("Wynik dziesietnie: ",liczba,nl);
+
+    stdout.put("Ta sama operacja z wykorzystaniem instrukcji neg:",nl);
+    mov(al,liczba);
+    neg(liczba);
+    stdout.put("Wynik szesnastkowo: ");
+    stdout.puth8(liczba);
+    stdout.newln();
+    stdout.put("Wynik dziesietnie: ",liczba,nl);
+
+end negacja;

@@ -1,0 +1,36 @@
+program movaddsub2;
+
+#include ("stdlib.hhf");
+
+static
+	liczba1b: int8 := -7;
+	liczba2b: int16 := -277;
+	liczba4b: int32 := -66000;
+
+begin movaddsub2;
+
+	stdout.put( "Poczatkowe wartosci: 1-bajtowa: ",liczba1b,", 2-bajtowa: ", liczba2b, ", 4-bajtowa: ", liczba4b, nl);
+
+	mov(liczba1b,al);
+	sub(liczba1b,al);
+	sub(liczba1b,al);
+	mov(al,liczba1b);
+
+	mov(liczba2b,ax);
+	sub(liczba2b,ax);
+	sub(liczba2b,ax);
+	mov(ax,liczba2b);
+
+	mov(liczba4b,eax);
+	sub(liczba4b,eax);
+	sub(liczba4b,eax);
+	mov(eax,liczba4b);
+	
+	stdout.put( "Wartosci po negacji: 1-bajtowa: ",liczba1b,", 2-bajtowa: ", liczba2b, ", 4-bajtowa: ", liczba4b, nl );
+	
+	add(666,eax);
+	mov(eax,liczba4b);
+
+	stdout.put( "Po dodaniu 666 do liczby 4-bajtowej otrzymalismy ",liczba4b,nl );
+
+end movaddsub2;

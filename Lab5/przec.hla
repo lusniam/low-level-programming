@@ -1,0 +1,41 @@
+program przec;
+
+#include( "stdlib.hhf" ); 
+ 
+static 
+    a: real32:= -4.87764e-2;
+    b: real32:= 562.3456e-1;
+    c: real32:= 3.14e-15;
+ 
+begin przec; 
+    stdout.put("Zmienna 1:",nl);
+    stdout.put("stdout.putr32: ");
+    stdout.putr32(a,10,7,'@');
+    stdout.newln();
+    stdout.put("stdout.put: ",a:10:7,nl);
+    stdout.put("stdout.pute32: ");
+    stdout.pute32(a,10);
+    stdout.newln();
+    stdout.put("stdout.put: ",a,nl);
+
+    stdout.put("Zmienna 2:",nl);
+    stdout.put("stdout.putr32: ");
+    stdout.putr32(b,11,7,'@');
+    stdout.newln();
+    stdout.put("stdout.put: ",b:12:7,nl);
+    stdout.put("stdout.pute32: ");
+    stdout.pute32(b,10);
+    stdout.newln();
+    stdout.put("stdout.put: ",b,nl);
+
+    stdout.put("Zmienna 3:",nl);
+    stdout.put("stdout.putr32: ");
+    stdout.putr32(c,20,17,'@');
+    stdout.newln();
+    stdout.put("stdout.put: ",c:20:17,nl);
+    stdout.put("stdout.pute32: ");
+    stdout.pute32(c,10);
+    stdout.newln();
+    stdout.put("stdout.put: ",c,nl);
+  
+end przec;

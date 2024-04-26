@@ -1,0 +1,14 @@
+program tab1;
+
+#include("stdlib.hhf");
+
+static
+    tab: int8[11]:=[10,9,8,7,6,5,4,3,2,1,0];
+
+begin tab1;
+
+    stdout.put("Podaj element tablicy od 0 do 10: ");
+    stdin.geti8();
+    stdout.put("Element jest rowny ",tab[eax],nl);
+
+end tab1;

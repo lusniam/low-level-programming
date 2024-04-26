@@ -1,0 +1,27 @@
+program pierwszy;
+
+#include ("stdlib.hhf");
+
+static
+	liczba1: int16:=15;
+	logiczna: boolean;
+	logicznaTrue: boolean:= true;
+	logicznaFalse: boolean:= false;
+
+var
+	liczba2: int16;
+
+begin pierwszy;
+
+	stdout.put ( "Pierwszy program",nl);
+
+	stdout.put ( "Podaj liczbe: ");
+	stdin.get ( liczba2 ) ;
+	stdout.put ( "Zadeklarowana zmienna jest rowna ",liczba1 );
+	stdout.put ( " a wprowadzona liczba z klawiatury to ",liczba2,nl );
+
+	stdout.put ( "wartosc zmiennej logiczna: ",logiczna,nl );
+	stdout.put ( "wartosc zmiennej logicznaTrue: ",logicznaTrue,nl );
+	stdout.put ( "wartosc zmiennej logicznaFalse: ",logicznaFalse,nl );
+
+end pierwszy;
